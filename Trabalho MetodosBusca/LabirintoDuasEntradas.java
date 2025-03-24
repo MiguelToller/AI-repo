@@ -16,7 +16,7 @@ public class LabirintoDuasEntradas implements Estado {
     int linhaEntrada2, colunaEntrada2;
     int linhaSaida, colunaSaida;
     final String op;
-    final boolean usarEntrada1; // Novo atributo para controlar qual entrada será movimentada
+    final boolean usarEntrada1; // controlar entrada
 
     char [][]clonar(char origem[][]) {
         char destino[][] = new char[origem.length][origem[0].length]; 
@@ -123,10 +123,10 @@ public class LabirintoDuasEntradas implements Estado {
         List<Estado> sucessores = new LinkedList<>();
         Set<String> visitados = new HashSet<>();
 
-        // Se a entrada atual já estiver na saída, não gera mais sucessores
+        // se a entrada atual ja estiver na saida, nao gera mais sucessores
         if ((usarEntrada1 && linhaEntrada1 == linhaSaida && colunaEntrada1 == colunaSaida) ||
             (!usarEntrada1 && linhaEntrada2 == linhaSaida && colunaEntrada2 == colunaSaida)) {
-            return sucessores; // Retorna lista vazia, parando a busca para essa entrada
+            return sucessores; // retorna lista vazia
         }
 
         adicionarSucessor(visitados, sucessores, paraCima());
@@ -254,7 +254,7 @@ public class LabirintoDuasEntradas implements Estado {
             dimensao = Integer.parseInt(JOptionPane.showInputDialog("Dimensao do labirinto:"));
             porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog("Porcentagem de obstaculos:"));
             
-            // Cria o estado inicial único
+            // cria o estado inicial
             estadoInicial = new LabirintoDuasEntradas(dimensao, "estado inicial", porcentagemObstaculos, true);
             
             System.out.println(estadoInicial);
@@ -265,10 +265,10 @@ public class LabirintoDuasEntradas implements Estado {
                 System.out.println("Solucao Entrada 1:");
                 System.out.println(n1.montaCaminho());
             } else {
-                System.out.println("Sem solução para Entrada 1.");
+                System.out.println("Sem solucao para Entrada 1.");
             }
             
-            // Cria uma cópia do estado inicial para a segunda busca
+            // cria uma copia do estado inicial
             LabirintoDuasEntradas estadoInicialCopia = new LabirintoDuasEntradas(
                 estadoInicial.matriz, 
                 estadoInicial.linhaEntrada1, 
@@ -278,13 +278,13 @@ public class LabirintoDuasEntradas implements Estado {
                 estadoInicial.linhaSaida, 
                 estadoInicial.colunaSaida, 
                 "estado inicial", 
-                false  // Agora usando a Entrada 2
+                false  // entrada 2
             );
             
             System.out.println("Buscando solucao para Entrada 2 usando Largura...");
             Nodo n2 = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicialCopia);
             if (n2 != null) {
-                System.out.println("Solução Entrada 2:");
+                System.out.println("Solucao Entrada 2:");
                 System.out.println(n2.montaCaminho());
             } else {
                 System.out.println("Sem solucao para Entrada 2.");
@@ -297,6 +297,6 @@ public class LabirintoDuasEntradas implements Estado {
 
     @Override
     public String getDescricao() {
-        return "Labirinto com duas entradas e uma saída.";
+        return "Labirinto com duas entradas e uma saida.";
     }
 }
