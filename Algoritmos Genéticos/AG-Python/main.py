@@ -15,8 +15,8 @@ populacao.sort(key=lambda cromossomo: cromossomo.aptidao, reverse=True)
 Cromossomo.exibir_populacao(populacao, 0)
 
 for i in range(1, quantidade_geracoes):
-    Cromossomo.selecionar(populacao, nova_populacao, taxa_reproducao)
-    Cromossomo.reproduzir(populcao, nova_populacao, taxa_reproducao)
+    Cromossomo.selecionar(populacao, nova_populacao, taxa_selecao)
+    Cromossomo.reproduzir(populacao, nova_populacao, taxa_reproducao)
 
     if i % taxa_mutacao == 0:
         Cromossomo.mutar(nova_populacao)

@@ -15,5 +15,3 @@ class Util:
             palavra += Util.letras[random.randrange(Util.tamanho)] 
 
         return palavra
-    
-print(Util.gerar_palavra(5))
