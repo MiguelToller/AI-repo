@@ -19,4 +19,6 @@ Curso de Ciência da Computação – Universidade Franciscana (UFN)
 E-mail: luizmigueltoller@gmail.com  
 GitHub: [@MiguelToller](https://github.com/MiguelToller)
 
+---
+
 Este repositório tem cunho acadêmico e foi desenvolvido com fins de aprendizado e aplicação dos conceitos de Inteligência Artificial.
