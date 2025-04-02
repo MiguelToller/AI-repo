@@ -14,7 +14,7 @@ Os **Algoritmos Genéticos** são uma técnica de busca inspirada na teoria da e
 A seleção é baseada na seleção natural, onde os indivíduos mais fortes são escolhidos. No entanto, ela pode conter um grau de aleatoriedade para manter a diversidade genética, o que é essencial para o processo evolutivo.
 
 ### 2. Cruzamento
-O cruzamento é o processo em que dois cromossomos (pais) são combinados para criar um ou mais cromossomos filhos. Esse processo une as características dos pais, criando novas possibilidades para a solução do problema.
+O cruzamento é o processo em que dois cromossomos (pais) são combinados para criar um ou mais cromossomos filhos. Esse processo une as características dos pais, criando novos indivíduos com características herdadas.
 
 ### 3. Mutação
 A mutação introduz aleatoriedade nas soluções. Após a mutação, alguns cromossomos podem sofrer pequenas modificações em seus valores. Esse processo é crucial para evitar a estagnação genética e garantir a evolução contínua.
