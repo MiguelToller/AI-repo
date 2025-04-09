@@ -1,4 +1,5 @@
 import random
+
 from util import Util
 
 class Cromossomo:
@@ -116,15 +117,20 @@ class Cromossomo:
     def mutar(populacao, estado_final):
         quantidade_mutantes = random.randrange(1, int(len(populacao) / 5))
 
-        for i in range(quantidade_mutantes):
-            mutante = populacao[random.randrange(50, len(populacao))]
-            print('antes da mutacao...', mutante)
+        while(quantidade_mutantes > 0):
+            posicao_mutante = random.randrange(int(len(populacao)))
+            mutante = populacao[posicao_mutante]
+            print('Vai mutar ', mutante)
+
+            # Mudando
+            palavra_mutado = mutante.palavra
             # Posicao aleatoria
-            posicao_gene_mutante = random.randrange(int(len(mutante.palavra)))
+            caracter_mutante = mutante.palavra[random.randrange(len(mutante.palavra))]
             # Letra aleatoria
-            novo_gene = Util.letras[random.randrange(Util.tamanho)]
+            caracter_sorteado = Util.letras[random.randrange(Util.tamanho)]
             # Troca a letra na palavra
-            mutante.palavra[posicao_gene_mutante].replace(str(novo_gene))
-            # Calcula aptidao
-            mutante.calcular_aptidao(estado_final)
-            print('depois da mutacao...', mutante)
+            palavra_mutado = palavra_mutado.replace(caracter_mutante, caracter_sorteado)   
+                  
+            mutante = Cromossomo(palavra_mutado, estado_final)
+            populacao[posicao_mutante] = mutante
+            quantidade_mutantes -= 1

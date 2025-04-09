@@ -1,4 +1,5 @@
 import os
+
 from cromossomo import Cromossomo
 
 estado_final = input('Entre com a palavra do estado final: ')
@@ -25,11 +26,8 @@ for i in range(1, quantidade_geracoes):
     Cromossomo.reproduzir(populacao, nova_populacao, taxa_reproducao, estado_final)
 
     # Mutacao quebra o maximo local
-    if i % frequencia_mutacao == 0:
-        os.system('pause')
-        print('mutacao ocorrendo...')
+    if i % taxa_mutacao == 0:
         Cromossomo.mutar(nova_populacao, estado_final)
-        os.system('pause')
 
     populacao.clear()
     populacao.extend(nova_populacao)
